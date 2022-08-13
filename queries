@@ -5,3 +5,9 @@ $ SELECT * FROM pg_stat_activity;
 
 # Ever make changes to pg_hba.conf and wish to apply your changes without restarting the Postgres server (impacting users)?  Easy!  Open a PSQL shell and execute the following query:
 $ SELECT pg_reload_conf();
+
+# to terminate ideal connections
+$ SELECT pg_terminate_backend(pid) FROM pg_stat_activity
+WHERE datname = 'ac_finance'
+AND pid <> pg_backend_pid()
+AND state in ('idle');
