@@ -8,6 +8,23 @@ $ SELECT pg_reload_conf();
 
 # to terminate ideal connections
 $ SELECT pg_terminate_backend(pid) FROM pg_stat_activity
-WHERE datname = 'ac_finance'
+WHERE datname = 'db_name'
 AND pid <> pg_backend_pid()
 AND state in ('idle');
+
+
+
+# to find text used in all function and routines
+select 
+routine_catalog AS dbname,
+routine_schema AS SchemaName,
+routine_name AS FunctionName,
+routine_type AS ObjectType,
+from information_schema.routines 
+where routine_definition like '%txt to search%'
+
+# to find text used in all tables
+select 
+table_schema, table_name
+from information_schema."tables" t  
+where table_name  like '%funfd%'
