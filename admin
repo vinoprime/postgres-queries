@@ -1,0 +1,2 @@
+# to add ip 
+$ nano /etc/postgresql/9.6/main/pg_hba.conf
