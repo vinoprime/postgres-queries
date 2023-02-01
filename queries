@@ -13,6 +13,21 @@ AND pid <> pg_backend_pid()
 AND state in ('idle');
 
 
+# to search text 
+select 
+	routine_catalog AS DatabaseName
+	,routine_schema AS SchemaName
+	,routine_name AS FunctionName
+	,routine_type AS ObjectType
+from information_schema.routines 
+where routine_definition like '%<text>%'
+
+select 
+table_schema, table_name
+from information_schema."tables" t  
+where table_name  like '%text%'
+
+
 
 # to find text used in all function and routines
 select 
@@ -27,7 +42,7 @@ where routine_definition like '%txt to search%'
 select 
 table_schema, table_name
 from information_schema."tables" t  
-where table_name  like '%funfd%'
+where table_name  like '%<text or table name>%'
 
 # To find Column name in pgsql tables
 select t.table_schema, t.table_name
