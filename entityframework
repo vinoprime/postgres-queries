@@ -1,4 +1,5 @@
 # DB context in separate project
 # goto pkg manager console
 $ cd <Database project location>
-$ dotnet ef migrations add NewMigration --startup-project "../Contoso.App/MyWebApiProject.csproj"
+# Main project should have "Microsoft.EntityFrameworkCore.Design" nuget pkg
+$ dotnet ef migrations add <replace your migration_name> --startup-project "../Contoso.App/MyWebApiProject.csproj"
