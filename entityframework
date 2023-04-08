@@ -1,0 +1,4 @@
+# DB context in separate project
+# goto pkg manager console
+$ cd <Database project location>
+$ dotnet ef migrations add NewMigration --startup-project "../Contoso.App/MyWebApiProject.csproj"
