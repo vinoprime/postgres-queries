@@ -1,5 +1,15 @@
+#installing EF tools
+$ dotnet tool install --global dotnet-ef
+$ dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
+$ dotnet add package Microsoft.EntityFrameworkCore.Design
+$ dotnet add package Microsoft.EntityFrameworkCore.Tools
+
+
+
 # DB context in separate project
 # goto pkg manager console
 $ cd <Database project location>
 # Main project should have "Microsoft.EntityFrameworkCore.Design" nuget pkg
 $ dotnet ef migrations add <replace your migration_name> --startup-project "../Contoso.App/MyWebApiProject.csproj"
+# To refect in DB, bellow cmd
+$ dotnet ef database update
