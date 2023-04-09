@@ -12,4 +12,8 @@ $ cd <Database project location>
 # Main project should have "Microsoft.EntityFrameworkCore.Design" nuget pkg
 $ dotnet ef migrations add <replace your migration_name> --startup-project "../Contoso.App/MyWebApiProject.csproj"
 # To refect in DB, bellow cmd
-$ dotnet ef database update
+$ dotnet ef database update --startup-project "..\Contoso.App\MyWebApiProject.csproj"
+# If already exists
+$ dotnet ef database drop --startup-project "..\consto_api\consto_api.csproj"
+
+
